@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- OpenGraph / Social Sharing Meta -->
+    <meta name="title" content="Holographic Clinical Command Deck • Sovereign Analytics Intelligence">
+    <meta name="description" content="60FPS Glassmorphic Clinical & Healthcare Analytics Command Deck with interactive capacity simulation, real-time SVG charts, and authentic Egyptian healthcare economics.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mth1346686.github.io/holographic-command-deck/">
+    <meta property="og:title" content="Holographic Clinical Command Deck • Sovereign Analytics Intelligence">
+    <meta property="og:description" content="60FPS Glassmorphic Clinical & Healthcare Analytics Command Deck with interactive capacity simulation, real-time SVG charts, and authentic Egyptian healthcare economics.">
+    <meta property="og:image" content="https://mth1346686.github.io/holographic-command-deck/cairo_tech_founders_hologram.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mth1346686.github.io/holographic-command-deck/">
+    <meta property="twitter:title" content="Holographic Clinical Command Deck • Sovereign Analytics Intelligence">
+    <meta property="twitter:description" content="60FPS Glassmorphic Clinical & Healthcare Analytics Command Deck with interactive capacity simulation, real-time SVG charts, and authentic Egyptian healthcare economics.">
+    <meta property="twitter:image" content="https://mth1346686.github.io/holographic-command-deck/cairo_tech_founders_hologram.jpg">
+    <meta name="theme-color" content="#050B14">
+    <title>Holographic Clinical Command Deck • Sovereign Analytics Intelligence</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --holo-cyan: #00F0FF;
+            --holo-cyan-glow: rgba(0, 240, 255, 0.4);
+            --holo-teal: #00E5A3;
+            --holo-teal-glow: rgba(0, 229, 163, 0.4);
+            --holo-violet: #A855F7;
+            --holo-amber: #F59E0B;
+            --holo-rose: #F43F5E;
+            --glass-bg: rgba(15, 23, 42, 0.72);
+            --glass-bg-hover: rgba(30, 41, 59, 0.85);
+            --glass-border: rgba(0, 240, 255, 0.22);
+            --glass-border-bright: rgba(0, 240, 255, 0.6);
+            --bg-deep: #050B14;
+            --text-pure: #FFFFFF;
+            --text-dim: #94A3B8;
+            --text-glow: #E0F2FE;
+            --sidebar-w: 270px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Cairo', sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100%;
+            background-color: var(--bg-deep);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.08) 0%, transparent 40%),
+                linear-gradient(180deg, #050B14 0%, #0B1528 50%, #030712 100%);
+            color: var(--text-pure);
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Futuristic HUD Grid Lines */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* -----------------------------------------------------------
+           GLASSMORPHIC HUD CARDS (Holographic Styling)
+        ----------------------------------------------------------- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 18px 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 16px rgba(0, 240, 255, 0.04);
+            position: relative;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: var(--glass-border-bright);
+            box-shadow: 0 12px 36px 0 rgba(0, 240, 255, 0.15), inset 0 0 20px rgba(0, 240, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        /* Holographic Corner Tech Brackets */
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 14px;
+            height: 14px;
+            border-top: 2px solid var(--holo-cyan);
+            border-right: 2px solid var(--holo-cyan);
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* -----------------------------------------------------------
+           1. SIDEBAR (Fixed Desktop, Smooth Off-Canvas Mobile Drawer)
+        ----------------------------------------------------------- */
+        .holo-sidebar {
+            width: var(--sidebar-w);
+            min-width: var(--sidebar-w);
+            height: 100vh;
+            background: rgba(10, 18, 32, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-right: 1px solid var(--glass-border);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            padding: 24px 18px;
+            overflow-y: auto;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .holo-sidebar::-webkit-scrollbar {
+            width: 3px;
+        }
+        .holo-sidebar::-webkit-scrollbar-thumb {
+            background: var(--holo-cyan-glow);
+            border-radius: 2px;
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+            margin-bottom: 20px;
+        }
+
+        .brand-orb {
+            width: 44px;
+            height: 44px;
+            background: radial-gradient(circle at 30% 30%, #00F0FF 0%, #0B192E 80%);
+            border: 1px solid var(--holo-cyan);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 0 16px var(--holo-cyan-glow);
+            flex-shrink: 0;
+        }
+
+        .brand-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #FFFFFF;
+            text-shadow: 0 0 12px var(--holo-cyan-glow);
+        }
+
+        .brand-sub {
+            font-size: 0.68rem;
+            color: var(--holo-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .drawer-close-btn {
+            display: none;
+            background: rgba(244, 63, 94, 0.2);
+            border: 1px solid var(--holo-rose);
+            color: #FFFFFF;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            align-self: flex-end;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .nav-section-title {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: var(--holo-cyan);
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-pill {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .nav-pill:hover, .nav-pill.active {
+            color: #FFFFFF;
+            background: rgba(0, 240, 255, 0.1);
+            border-color: rgba(0, 240, 255, 0.3);
+            text-shadow: 0 0 8px var(--holo-cyan-glow);
+            transform: translateX(3px);
+        }
+
+        .nav-pill.active {
+            background: linear-gradient(90deg, rgba(0, 240, 255, 0.2) 0%, rgba(0, 229, 163, 0.1) 100%);
+            border-color: var(--holo-cyan);
+            box-shadow: 0 0 16px rgba(0, 240, 255, 0.2);
+        }
+
+        .holo-filter-group {
+            margin-top: 14px;
+            flex-grow: 1;
+        }
+
+        .filter-block {
+            margin-bottom: 14px;
+        }
+
+        .filter-label {
+            font-size: 0.72rem;
+            color: var(--holo-teal);
+            margin-bottom: 6px;
+            display: block;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .holo-select {
+            width: 100%;
+            padding: 9px 12px;
+            border-radius: 8px;
+            background: rgba(5, 11, 20, 0.75);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            color: #FFFFFF;
+            font-size: 0.8rem;
+            outline: none;
+            transition: all 0.2s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .holo-select:focus {
+            border-color: var(--holo-cyan);
+            box-shadow: 0 0 12px var(--holo-cyan-glow);
+        }
+
+        .holo-select option {
+            background: #0B1528;
+            color: #FFFFFF;
+        }
+
+        .sidebar-hud-foot {
+            padding-top: 14px;
+            border-top: 1px solid rgba(0, 240, 255, 0.12);
+            font-size: 0.68rem;
+            color: var(--text-dim);
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Backdrop Overlay for Mobile Drawer */
+        .sidebar-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 7, 18, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .sidebar-backdrop.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* -----------------------------------------------------------
+           2. MAIN COMMAND VIEWPORT
+        ----------------------------------------------------------- */
+        .holo-viewport {
+            margin-left: var(--sidebar-w);
+            min-height: 100vh;
+            padding: 22px 28px 50px 28px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Sticky Mobile Header Bar */
+        .mobile-hud-bar {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 18, 32, 0.9);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            padding: 10px 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            position: sticky;
+            top: 0;
+            z-index: 800;
+        }
+
+        .hud-toggle-btn {
+            background: rgba(0, 240, 255, 0.15);
+            border: 1px solid var(--holo-cyan);
+            color: #FFFFFF;
+            font-size: 0.84rem;
+            padding: 6px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            box-shadow: 0 0 10px var(--holo-cyan-glow);
+        }
+
+        /* Top Executive Glass Banner */
+        .hud-top-banner {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.12) 0%, rgba(168, 85, 247, 0.08) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .banner-heading h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            text-shadow: 0 0 14px var(--holo-cyan-glow);
+        }
+
+        .banner-heading p {
+            font-size: 0.76rem;
+            color: var(--holo-cyan);
+            margin-top: 3px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hud-status-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .hud-badge {
+            background: rgba(0, 240, 255, 0.12);
+            border: 1px solid var(--holo-cyan);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--holo-teal);
+            box-shadow: 0 0 8px var(--holo-teal);
+            animation: pulse-dot 1.8s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+
+        /* -----------------------------------------------------------
+           3. FIVE HOLOGRAPHIC KPI METRIC CARDS (WITH SPARKLINES)
+        ----------------------------------------------------------- */
+        .kpi-hologrid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .kpi-holocard {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 16px 18px;
+            backdrop-filter: blur(14px);
+            transition: all 0.25s ease;
+            position: relative;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .kpi-holocard:hover {
+            border-color: var(--holo-cyan);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px var(--holo-cyan-glow);
+        }
+
+        .kpi-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .kpi-meta-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--text-dim);
+            font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .kpi-sparkline {
+            width: 55px;
+            height: 22px;
+        }
+
+        .kpi-big-value {
+            font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+            font-weight: 900;
+            color: #FFFFFF;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 12px var(--holo-cyan-glow);
+            margin: 2px 0;
+            word-break: break-word;
+        }
+
+        .kpi-delta-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--holo-teal);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 4px;
+        }
+
+        /* -----------------------------------------------------------
+           4. ANALYTICS LAYERS (TABS / PILLS)
+        ----------------------------------------------------------- */
+        .analytics-layer-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .layer-btn {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--glass-border);
+            color: var(--text-dim);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .layer-btn:hover, .layer-btn.active {
+            background: rgba(0, 240, 255, 0.18);
+            border-color: var(--holo-cyan);
+            color: #FFFFFF;
+            box-shadow: 0 0 14px var(--holo-cyan-glow);
+        }
+
+        /* -----------------------------------------------------------
+           5. ALL CHART TYPES (GRID ROWS)
+        ----------------------------------------------------------- */
+        .charts-hologrid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .charts-hologrid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .chart-hud-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.12);
+        }
+
+        .chart-hud-title {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chart-hud-meta {
+            font-size: 0.68rem;
+            color: var(--holo-cyan);
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(0, 240, 255, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        /* SVG Chart Canvas Containers */
+        .svg-chart-box {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Donut Radial Ring */
+        .donut-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 200px;
+            width: 100%;
+        }
+
+        .radial-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radial-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.74rem;
+        }
+
+        .radial-color-box {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+        }
+
+        /* Horizontal Leaderboard Rows */
+        .leaderboard-list {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .lb-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .lb-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+
+        .lb-track {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 240, 255, 0.15);
+        }
+
+        .lb-bar {
+            height: 100%;
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--holo-cyan-glow);
+        }
+
+        /* Funnel Pipeline */
+        .funnel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: center;
+            height: 200px;
+        }
+
+        .funnel-stage {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.74rem;
+        }
+
+        .funnel-bar-wrap {
+            flex: 1;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            border: 1px solid rgba(0, 240, 255, 0.15);
+        }
+
+        .funnel-bar-glow {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 240, 255, 0.3) 0%, rgba(168, 85, 247, 0.3) 100%);
+            border-radius: 4px;
+        }
+
+        /* -----------------------------------------------------------
+           6. ADVANCED ANALYTICS SECTION (DIAGNOSTIC & PREDICTIVE)
+        ----------------------------------------------------------- */
+        .analytics-deck-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .ai-insight-box {
+            background: rgba(10, 18, 32, 0.85);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 12px;
+            padding: 16px 18px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            box-shadow: 0 0 18px rgba(0, 240, 255, 0.08);
+            margin-bottom: 12px;
+        }
+
+        .ai-icon-pulse {
+            font-size: 24px;
+            filter: drop-shadow(0 0 8px var(--holo-cyan));
+        }
+
+        /* -----------------------------------------------------------
+           7. INTERACTIVE HOLOGRAPHIC WHAT-IF SIMULATOR
+        ----------------------------------------------------------- */
+        .holo-simulator {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(5, 11, 20, 0.95) 100%);
+            border: 1px solid var(--holo-cyan);
+            border-radius: 14px;
+            padding: 22px 26px;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+            margin-bottom: 22px;
+        }
+
+        .sim-hud-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .sim-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.2fr;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .sim-input-box {
+            background: rgba(5, 11, 20, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            padding: 14px 18px;
+            border-radius: 10px;
+        }
+
+        .sim-flex-lbl {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--holo-teal);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 8px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--holo-cyan);
+            cursor: pointer;
+        }
+
+        .sim-hud-result {
+            background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.15) 0%, rgba(10, 18, 32, 0.95) 100%);
+            border: 1px solid var(--holo-cyan);
+            border-radius: 12px;
+            padding: 18px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 0 20px var(--holo-cyan-glow);
+        }
+
+        /* -----------------------------------------------------------
+           UNIVERSAL RESPONSIVE BREAKPOINTS (Tablet, Mobile)
+        ----------------------------------------------------------- */
+
+        /* 1. TABLET (769px to 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            :root { --sidebar-w: 220px; }
+            .holo-viewport { padding: 16px 20px; }
+            .kpi-hologrid { grid-template-columns: repeat(3, 1fr); }
+            .charts-hologrid-3 { grid-template-columns: repeat(2, 1fr); }
+            .analytics-deck-grid { grid-template-columns: 1fr; }
+            .sim-grid-3 { grid-template-columns: 1fr 1fr; }
+            .sim-hud-result { grid-column: span 2; }
+        }
+
+        /* 2. MOBILE (< 768px) */
+        @media (max-width: 768px) {
+            .mobile-hud-bar { display: flex; }
+
+            .holo-sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100vh;
+                width: 290px;
+                max-width: 85vw;
+                transform: translateX(-100%);
+                z-index: 10000;
+                box-shadow: 10px 0 40px rgba(0, 0, 0, 0.8);
+            }
+
+            .holo-sidebar.mobile-open {
+                transform: translateX(0);
+            }
+
+            .drawer-close-btn { display: block; }
+
+            .holo-viewport {
+                margin-left: 0 !important;
+                padding: 12px 14px 40px 14px;
+                width: 100% !important;
+            }
+
+            .hud-top-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 16px;
+            }
+
+            .banner-heading h1 { font-size: 1.12rem; }
+
+            /* Mobile KPI Cards: 2 Columns with 5th spanning full width */
+            .kpi-hologrid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .kpi-holocard {
+                padding: 12px 14px;
+            }
+
+            .kpi-holocard:nth-child(5) {
+                grid-column: span 2;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .kpi-big-value {
+                font-size: 1.25rem;
+            }
+
+            /* Single-column charts on mobile */
+            .charts-hologrid-3 {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .charts-hologrid-2 {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .analytics-deck-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .sim-grid-3 {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        /* ===================================================
+           HOLOGRAPHIC 60FPS SCROLL & MOTION DYNAMICS SYSTEM
+           =================================================== */
+
+        /* Fixed Top Holographic Laser Scroll Progress Bar */
+        #holoScrollLaser {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--holo-cyan) 0%, var(--holo-violet) 50%, var(--holo-teal) 100%);
+            box-shadow: 0 0 14px var(--holo-cyan), 0 0 24px var(--holo-violet);
+            z-index: 99999;
+            pointer-events: none;
+            transition: width 0.06s linear;
+        }
+
+        /* Floating Holographic Depth HUD Capsule */
+        #holoDepthCapsule {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: rgba(11, 21, 40, 0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-family: 'JetBrains Mono', 'Cairo', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #E0F2FE;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 999;
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.75), 0 0 20px rgba(0, 240, 255, 0.25);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            cursor: pointer;
+        }
+        #holoDepthCapsule:hover {
+            border-color: var(--holo-cyan);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.85), 0 0 28px rgba(0, 240, 255, 0.45);
+            transform: translateY(-2px);
+        }
+        .depth-radar-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--holo-cyan);
+            box-shadow: 0 0 10px var(--holo-cyan);
+            position: relative;
+        }
+        .depth-radar-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1.5px solid var(--holo-cyan);
+            animation: radarPulse 2s infinite ease-out;
+        }
+        @keyframes radarPulse {
+            0% { transform: scale(0.6); opacity: 1; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+
+        /* Ambient Cyber Dust Particle Canvas */
+        #holoParticleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.55;
+        }
+
+        /* 3D Holographic Scroll Reveal Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(45px) scale(0.96) perspective(1000px) rotateX(6deg);
+            filter: blur(8px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.6s ease,
+                        box-shadow 0.6s ease;
+            will-change: opacity, transform, filter;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-reveal.is-revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1) perspective(1000px) rotateX(0deg);
+            filter: blur(0px);
+        }
+
+        /* Laser Light Sheen Sweep on Reveal */
+        .scroll-reveal.is-revealed::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -160%;
+            width: 75%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 240, 255, 0.03) 25%, 
+                rgba(0, 240, 255, 0.3) 50%, 
+                rgba(168, 85, 247, 0.25) 75%, 
+                transparent 100%
+            );
+            transform: skewX(-25deg);
+            pointer-events: none;
+            animation: holoLaserSheen 1.35s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+            z-index: 10;
+        }
+
+        @keyframes holoLaserSheen {
+            0% { left: -160%; opacity: 0; }
+            30% { opacity: 1; }
+            100% { left: 240%; opacity: 0; }
+        }
+
+        /* Staggered Delay Hierarchy */
+        .delay-1 { transition-delay: 0.06s; }
+        .delay-2 { transition-delay: 0.14s; }
+        .delay-3 { transition-delay: 0.22s; }
+        .delay-4 { transition-delay: 0.30s; }
+        .delay-5 { transition-delay: 0.38s; }
+
+        /* Interactive 3D Perspective Tilt on Mouse / Gyroscope */
+        .interactive-tilt {
+            transform-style: preserve-3d;
+            transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+        }
+        .interactive-tilt:hover {
+            box-shadow: 0 16px 40px rgba(0, 240, 255, 0.18), 0 0 25px rgba(0, 240, 255, 0.25);
+            border-color: rgba(0, 240, 255, 0.55) !important;
+        }
+
+        
+        /* SVG Transform Box Precision */
+        .anim-grow-bar {
+            transform-box: fill-box;
+            transform-origin: bottom;
+            animation: growBarHeight 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .anim-pop-bubble {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: popScatterBubble 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        /* SVG Chart Ingress Animation Effects */
+        .anim-draw-line {
+            stroke-dasharray: 1500;
+            stroke-dashoffset: 1500;
+            animation: drawSvgLine 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes drawSvgLine {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .anim-grow-bar {
+            transform-origin: bottom;
+            animation: growBarHeight 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes growBarHeight {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+
+        .anim-pop-bubble {
+            transform-origin: center;
+            animation: popScatterBubble 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes popScatterBubble {
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.22); opacity: 0.95; }
+            100% { transform: scale(1); opacity: 0.85; }
+        }
+
+        .anim-slide-bar {
+            transform-origin: left;
+            animation: slideBarWidth 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideBarWidth {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* Floating Audio Toggle in Top HUD */
+        .holo-audio-pill {
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 999px;
+            padding: 5px 12px;
+            font-size: 0.72rem;
+            color: var(--holo-cyan);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .holo-audio-pill:hover {
+            background: rgba(0, 240, 255, 0.25);
+            box-shadow: 0 0 10px var(--holo-cyan);
+        }
+
+    </style>
+</head>
+<body id="pageBody">
+
+    <!-- Holographic Laser Scroll Progress Bar -->
+    <div id="holoScrollLaser"></div>
+
+    <!-- Ambient 3D Cyber Dust Particle Canvas -->
+    <canvas id="holoParticleCanvas"></canvas>
+
+    <!-- Floating Interactive Holographic Depth Capsule HUD -->
+    <div id="holoDepthCapsule" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Click to glide back to top">
+        <div class="depth-radar-dot"></div>
+        <span id="depthText">DEPTH: 0% • EXECUTIVE STRATEGIC OVERVIEW</span>
+        <span style="font-size: 0.8rem; opacity: 0.7;">▲</span>
+    </div>
+
+
+    <!-- Mobile Header Bar with Hamburger Toggle -->
+    <div class="mobile-hud-bar">
+        <div style="font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; color: #FFFFFF;">
+            <span style="color: var(--holo-cyan); text-shadow: 0 0 10px var(--holo-cyan);">💎</span> HOLOGRAPHIC AI DECK
+        </div>
+        <button class="hud-toggle-btn" onclick="toggleSidebar()">
+            <span>☰</span> النظم والفلاتر
+        </button>
+    </div>
+
+    <!-- Backdrop for mobile drawer -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeMobileSidebar()"></div>
+
+    <!-- 1. HOLOGRAPHIC GLASS SIDEBAR -->
+    <aside class="holo-sidebar" id="appSidebar">
+        <button class="drawer-close-btn" onclick="closeMobileSidebar()">✕ إغلاق القائمة</button>
+
+        <div class="brand-box">
+            <div class="brand-orb">🔮</div>
+            <div>
+                <div class="brand-title">HOLOGRAPHIC AI</div>
+                <div class="brand-sub">Glass Command Deck</div>
+            </div>
+        </div>
+
+        <div class="nav-section-title">Navigation Hub</div>
+        <div class="nav-pill active" onclick="switchLayer('all'); closeMobileSidebar();">🌐 Master Holographic View</div>
+        <div class="nav-pill" onclick="switchLayer('predictive'); closeMobileSidebar();">📈 Predictive AI Trajectory</div>
+        <div class="nav-pill" onclick="switchLayer('diagnostic'); closeMobileSidebar();">🔬 Root-Cause Diagnostics</div>
+        <div class="nav-pill" onclick="switchLayer('prescriptive'); closeMobileSidebar();">🎯 Decision Intelligence</div>
+
+        <div class="holo-filter-group">
+            <div class="nav-section-title" style="margin-top: 14px;">Multi-Dimensional Slicers</div>
+
+            <div class="filter-block">
+                <label class="filter-label">🩺 Clinical Division</label>
+                <select id="deptFilter" class="holo-select" onchange="runHoloCalculations()">
+                    <option value="ALL">All Clinical Divisions (6)</option>
+                    <option value="Cardiology">Cardiology &amp; Cath Lab</option>
+                    <option value="Orthopedics">Orthopedics &amp; Spine</option>
+                    <option value="Neurology">Neurology &amp; Stroke</option>
+                    <option value="Pediatrics">Pediatrics &amp; NICU</option>
+                    <option value="Oncology">Oncology &amp; Infusion</option>
+                    <option value="Emergency">Emergency &amp; Trauma</option>
+                </select>
+            </div>
+
+            <div class="filter-block">
+                <label class="filter-label">📍 Regional Hospital Hub</label>
+                <select id="branchFilter" class="holo-select" onchange="runHoloCalculations()">
+                    <option value="ALL">All 5 Hospital Hubs (Egypt)</option>
+                    <option value="Cairo HQ">Cairo HQ (Qasr El-Nil)</option>
+                    <option value="Smart Village">Smart Village Tech Hub</option>
+                    <option value="Alexandria">Alexandria Mediterranean Hub</option>
+                    <option value="Mansoura">Mansoura Delta Medical City</option>
+                    <option value="Assiut">Upper Egypt Assiut Center</option>
+                </select>
+            </div>
+
+            <div class="filter-block">
+                <label class="filter-label">⚡ Real-Time Ingestion Source</label>
+                <select class="holo-select">
+                    <option value="live">Kafka Stream (Sub-Second)</option>
+                    <option value="olap">OLAP Delta Lake (Aggregated)</option>
+                    <option value="biometric">IoT Biometric Webhook</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="sidebar-hud-foot">
+            Sovereign Century Swarm<br>
+            Holographic Glass Engine v2.0
+        
+        <a href="Holographic_Clinical_Analytics.xlsx" download style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 8px 12px; background: rgba(0, 240, 255, 0.12); border: 1px solid rgba(0, 240, 255, 0.35); border-radius: 8px; color: #00F0FF; text-decoration: none; font-size: 0.72rem; font-weight: 700; transition: all 0.2s ease;">
+            <span>📊</span> Download Excel Deck (.xlsx)
+        </a>
+    </div>
+    </aside>
+
+    <!-- 2. MAIN HOLOGRAPHIC VIEWPORT -->
+    <main class="holo-viewport" id="mainViewport">
+
+        <!-- TOP GLASS EXECUTIVE BANNER -->
+        <header class="hud-top-banner scroll-reveal interactive-tilt">
+            <div class="banner-heading">
+                <h1>Holographic Glass Command Deck</h1>
+                <p>Full-Spectrum Analytics • Descriptive • Diagnostic • Predictive • Prescriptive</p>
+            </div>
+            <div class="hud-status-badges">
+                <a href="Holographic_Clinical_Analytics.xlsx" download class="hud-badge" style="text-decoration: none; border-color: rgba(0, 229, 163, 0.45); color: #00E5A3; display: flex; align-items: center; gap: 5px;">
+                    <span style="font-size: 0.8rem;">📥</span> <span>Excel Deck (.xlsx)</span>
+                </a>
+
+                <div class="holo-audio-pill" id="soundToggleBtn" onclick="toggleHoloSound()">
+                    <span id="soundIcon">🔊</span>
+                    <span id="soundLabel">Glass Sonic: ON</span>
+                </div>
+                <div class="hud-badge">
+                    <div class="live-dot"></div>
+                    <span>TELEMETRY LIVE</span>
+                </div>
+                <div class="hud-badge" style="border-color: var(--holo-teal); color: var(--holo-teal);">
+                    <span>⚡ 60 FPS GPU SHADER</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ANALYTICS LAYER TOGGLE BAR -->
+        <section class="analytics-layer-bar">
+            <button class="layer-btn active" onclick="filterLayers('all', this)">🌐 All Analytics Layers</button>
+            <button class="layer-btn" onclick="filterLayers('descriptive', this)">📊 Descriptive (What Happened)</button>
+            <button class="layer-btn" onclick="filterLayers('diagnostic', this)">🔬 Diagnostic (Why It Happened)</button>
+            <button class="layer-btn" onclick="filterLayers('predictive', this)">🔮 Predictive (90-Day Forecast)</button>
+            <button class="layer-btn" onclick="filterLayers('prescriptive', this)">💡 Prescriptive (Actionable AI)</button>
+        </section>
+
+        <!-- 3. FIVE HOLOGRAPHIC KPI CARDS WITH EMBEDDED MINI SPARKLINES -->
+        <section class="kpi-hologrid">
+            <div class="kpi-holocard scroll-reveal interactive-tilt delay-1">
+                <div class="kpi-top-row">
+                    <span class="kpi-meta-title">Total Caseload</span>
+                    <svg class="kpi-sparkline" viewBox="0 0 60 20">
+                        <path d="M 0 16 Q 15 5, 30 12 T 60 4" fill="none" stroke="#00F0FF" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="kpi-big-value" id="kpi-total">1,450</div>
+                <div class="kpi-delta-tag">▲ +14.2% <span style="color: var(--text-dim); font-weight: 500;">vs benchmark</span></div>
+            </div>
+
+            <div class="kpi-holocard scroll-reveal interactive-tilt delay-2">
+                <div class="kpi-top-row">
+                    <span class="kpi-meta-title">Active Ward Beds</span>
+                    <svg class="kpi-sparkline" viewBox="0 0 60 20">
+                        <path d="M 0 14 Q 15 18, 30 8 T 60 3" fill="none" stroke="#00E5A3" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="kpi-big-value" id="kpi-beds" style="color: var(--holo-teal);">482</div>
+                <div class="kpi-delta-tag" style="color: var(--holo-teal);">● 91.4% <span style="color: var(--text-dim); font-weight: 500;">Bed Occupancy</span></div>
+            </div>
+
+            <div class="kpi-holocard scroll-reveal interactive-tilt delay-3">
+                <div class="kpi-top-row">
+                    <span class="kpi-meta-title">Avg Length of Stay</span>
+                    <svg class="kpi-sparkline" viewBox="0 0 60 20">
+                        <path d="M 0 6 Q 15 15, 30 10 T 60 14" fill="none" stroke="#F59E0B" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="kpi-big-value" id="kpi-stay">5.8 <span style="font-size: 0.85rem; color: var(--text-dim);">Days</span></div>
+                <div class="kpi-delta-tag" style="color: var(--holo-amber);">▼ -0.6d <span style="color: var(--text-dim); font-weight: 500;">Turnaround Boost</span></div>
+            </div>
+
+            <div class="kpi-holocard scroll-reveal interactive-tilt delay-4">
+                <div class="kpi-top-row">
+                    <span class="kpi-meta-title">Patient Net Score</span>
+                    <svg class="kpi-sparkline" viewBox="0 0 60 20">
+                        <path d="M 0 15 Q 15 10, 30 6 T 60 2" fill="none" stroke="#A855F7" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="kpi-big-value" id="kpi-csat" style="color: var(--holo-violet);">4.85 <span style="font-size: 0.85rem;">★</span></div>
+                <div class="kpi-delta-tag" style="color: var(--holo-violet);">▲ 97.8% <span style="color: var(--text-dim); font-weight: 500;">Satisfaction</span></div>
+            </div>
+
+            <div class="kpi-holocard scroll-reveal interactive-tilt delay-5" style="border-left: 3px solid var(--holo-cyan);">
+                <div class="kpi-top-row">
+                    <span class="kpi-meta-title">Total Revenue</span>
+                    <svg class="kpi-sparkline" viewBox="0 0 60 20">
+                        <path d="M 0 18 Q 15 12, 30 7 T 60 2" fill="none" stroke="#00F0FF" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="kpi-big-value" id="kpi-rev" style="color: var(--holo-cyan);">28.45 <span style="font-size: 0.85rem;">M EGP</span></div>
+                <div class="kpi-delta-tag">▲ +18.6% <span style="color: var(--text-dim); font-weight: 500;">EGP Yield</span></div>
+            </div>
+        </section>
+
+        <!-- 4. ROW 1: AREA TREND (PREDICTIVE) + GROUPED BAR (DESCRIPTIVE) + RADIAL DONUT (DIAGNOSTIC) -->
+        <section class="charts-hologrid-3">
+            <!-- CHART 1: Luminous Spline Area Trend (Historical + 90-Day AI Forecast) -->
+            <div class="glass-card scroll-reveal interactive-tilt delay-1">
+                <div class="chart-hud-head">
+                    <div class="chart-hud-title">📈 AI Patient Inflow Trajectory</div>
+                    <div class="chart-hud-meta">PREDICTIVE ARIMA</div>
+                </div>
+                <div class="svg-chart-box" id="chart-area-trend"></div>
+            </div>
+
+            <!-- CHART 2: Grouped Multi-Metric Bar Chart -->
+            <div class="glass-card scroll-reveal interactive-tilt delay-2">
+                <div class="chart-hud-head">
+                    <div class="chart-hud-title">📊 Ward vs ICU Caseload</div>
+                    <div class="chart-hud-meta">GROUPED BARS</div>
+                </div>
+                <div class="svg-chart-box" id="chart-grouped-bar"></div>
+            </div>
+
+            <!-- CHART 3: Glowing Radial Donut Chart -->
+            <div class="glass-card scroll-reveal interactive-tilt delay-3">
+                <div class="chart-hud-head">
+                    <div class="chart-hud-title">🍩 Diagnostic Severity Mix</div>
+                    <div class="chart-hud-meta">RADIAL PROPORTION</div>
+                </div>
+                <div class="donut-container" id="chart-radial-donut"></div>
+            </div>
+        </section>
+
+        <!-- 5. ROW 2: SCATTER BUBBLE (DIAGNOSTIC) + WATERFALL (FINANCIAL VARIANCE) + FUNNEL (PIPELINE) -->
+        <section class="charts-hologrid-3">
+            <!-- CHART 4: Multi-Variable Scatter / Bubble Matrix -->
+            <div class="glass-card scroll-reveal interactive-tilt delay-1">
+                <div class="chart-hud-head">
+                    <div class="chart-hud-title">🔬 Stay vs Billing vs Risk Matrix</div>
+                    <div class="chart-hud-meta">SCATTER BUBBLES</div>
+                </div>
+                <div class="svg-chart-box" id="chart-scatter-bubble"></div>
+            </div>
+
+            <!-- CHART 5: Waterfall Variance Bridge Chart -->
+            <div class="glass-card scroll-reveal interactive-tilt delay-2">
+                <div class="chart-hud-head">
+                    <div class="chart-hud-title">🌊 Revenue Variance Bridge (EGP)</div>
+                    <div class="chart-hud-meta">WATERFALL ANALYSIS</div>
+                </div>
+                <div class="svg-chart-box" id="chart-waterfall"></div>
+            </div>
+
+            <!-- CHART 6: Clinical Care Pathway Funnel -->
+            <div class="glass-card scroll-reveal interactive-tilt delay-3">
+                <div class="chart-hud-head">
+                    <div class="chart-hud-title">⏳ Patient Throughput Funnel</div>
+                    <div class="chart-hud-meta">FUNNEL CONVERSION</div>
+                </div>
+                <div class="funnel-list" id="chart-funnel"></div>
+            </div>
+        </section>
+
+        <!-- 6. ROW 3: REGIONAL LEADERBOARD + ROOT-CAUSE DIAGNOSTICS & PRESCRIPTIVE AI -->
+        <section class="charts-hologrid-2">
+            <!-- CHART 7: Horizontal Neon Leaderboard -->
+            <div class="glass-card scroll-reveal interactive-tilt delay-1">
+                <div class="chart-hud-head">
+                    <div class="chart-hud-title">🏆 Top Regional Clinical Hubs</div>
+                    <div class="chart-hud-meta">LEADERBOARD EGP</div>
+                </div>
+                <div class="leaderboard-list" id="chart-leaderboard"></div>
+            </div>
+
+            <!-- PRESCRIPTIVE & DIAGNOSTIC INTELLIGENCE CARDS -->
+            <div class="glass-card scroll-reveal interactive-tilt delay-2">
+                <div class="chart-hud-head">
+                    <div class="chart-hud-title">🎯 AI Prescriptive Decision Recommendations</div>
+                    <div class="chart-hud-meta">PRESCRIPTIVE ENGINE</div>
+                </div>
+                
+                <div class="ai-insight-box">
+                    <div class="ai-icon-pulse">⚡</div>
+                    <div>
+                        <div style="font-weight: 800; font-size: 0.82rem; color: var(--holo-cyan);">
+                            Dynamic Bed Reallocation Recommended
+                        </div>
+                        <div style="font-size: 0.72rem; color: var(--text-dim); margin-top: 3px;">
+                            Cardiology occupancy projected to hit 96% by Thursday. Shift 8 step-down ward beds into monitored cardiac recovery to prevent surgical postponement.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ai-insight-box" style="border-color: rgba(0, 229, 163, 0.3);">
+                    <div class="ai-icon-pulse" style="color: var(--holo-teal);">💡</div>
+                    <div>
+                        <div style="font-weight: 800; font-size: 0.82rem; color: var(--holo-teal);">
+                            Revenue Optimization: Accelerated Insurance Triage
+                        </div>
+                        <div style="font-size: 0.72rem; color: var(--text-dim); margin-top: 3px;">
+                            InstaPay / Corporate direct claims in Cairo HQ are clearing in 1.4 days (+32% faster). Expand direct digital approvals to Alexandria and Mansoura.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ai-insight-box" style="border-color: rgba(245, 158, 11, 0.3);">
+                    <div class="ai-icon-pulse" style="color: var(--holo-amber);">⏱️</div>
+                    <div>
+                        <div style="font-weight: 800; font-size: 0.82rem; color: var(--holo-amber);">
+                            Discharge Cycle Optimization
+                        </div>
+                        <div style="font-size: 0.72rem; color: var(--text-dim); margin-top: 3px;">
+                            Morning discharge protocol reduced average stay from 6.4 to 5.8 days, releasing 22 net bed-days weekly for elective surgeries.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. REAL-TIME HOLOGRAPHIC WHAT-IF SIMULATOR -->
+        <section class="holo-simulator scroll-reveal interactive-tilt">
+            <div class="sim-hud-header">
+                <div style="font-size: 26px;">🔮</div>
+                <div>
+                    <h3 style="font-size: 1rem; font-weight: 800; color: #FFFFFF; text-shadow: 0 0 10px var(--holo-cyan);">
+                        Holographic What-If Capacity &amp; Revenue Simulator
+                    </h3>
+                    <p style="font-size: 0.72rem; color: var(--holo-cyan); font-family: 'JetBrains Mono', monospace;">
+                        Adjust variables in real-time to forecast bed capacity margins, ICU headroom, and EGP revenue
+                    </p>
+                </div>
+            </div>
+
+            <div class="sim-grid-3">
+                <div class="sim-input-box">
+                    <div class="sim-flex-lbl">
+                        <span>SURGICAL INFLOW SURGE</span>
+                        <span id="surgeLbl" style="color: var(--holo-cyan);">+18%</span>
+                    </div>
+                    <input type="range" id="surgeSlider" min="0" max="50" value="18" oninput="runHoloSimulator()">
+                    <div style="font-size: 0.68rem; color: var(--text-dim); margin-top: 4px;">Elective and trauma admissions</div>
+                </div>
+
+                <div class="sim-input-box">
+                    <div class="sim-flex-lbl">
+                        <span>DISCHARGE EFFICIENCY</span>
+                        <span id="dischargeLbl" style="color: var(--holo-teal);">+12%</span>
+                    </div>
+                    <input type="range" id="dischargeSlider" min="0" max="30" value="12" oninput="runHoloSimulator()">
+                    <div style="font-size: 0.68rem; color: var(--text-dim); margin-top: 4px;">Early step-down ward protocols</div>
+                </div>
+
+                <div class="sim-hud-result">
+                    <div style="font-size: 0.72rem; color: var(--holo-cyan); font-family: 'JetBrains Mono', monospace; text-transform: uppercase;">
+                        PROJECTED REVENUE &amp; BEDS
+                    </div>
+                    <div id="simRevResult" style="font-size: 1.6rem; font-weight: 900; color: #FFFFFF; text-shadow: 0 0 14px var(--holo-cyan); margin: 3px 0;">
+                        31.84M EGP
+                    </div>
+                    <div id="simHeadroomResult" style="font-size: 0.74rem; color: var(--holo-teal); font-weight: 700;">
+                        🟢 Headroom: 54 Monitored ICU Beds Available
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JAVASCRIPT HOLOGRAPHIC RENDERING ENGINE -->
+    <script>
+        // Data Store (Authentic Egyptian Healthcare Metrics)
+        const holoData = {
+            monthly: [
+                { m: "May", actual: 380, forecast: 380, lower: 360, upper: 400 },
+                { m: "Jun", actual: 410, forecast: 410, lower: 390, upper: 430 },
+                { m: "Jul", actual: 445, forecast: 445, lower: 420, upper: 470 },
+                { m: "Aug", actual: 470, forecast: 470, lower: 450, upper: 495 },
+                { m: "Sep", actual: 460, forecast: 460, lower: 440, upper: 485 },
+                { m: "Oct", actual: 482, forecast: 482, lower: 460, upper: 510 },
+                { m: "Nov (P)", actual: null, forecast: 515, lower: 480, upper: 550 },
+                { m: "Dec (P)", actual: null, forecast: 540, lower: 505, upper: 580 },
+                { m: "Jan (P)", actual: null, forecast: 565, lower: 520, upper: 610 }
+            ],
+            departments: [
+                { name: "Cardiology", ward: 95, icu: 35, color: "#00F0FF" },
+                { name: "Orthopedics", ward: 80, icu: 15, color: "#00E5A3" },
+                { name: "Neurology", ward: 65, icu: 25, color: "#A855F7" },
+                { name: "Pediatrics", ward: 70, icu: 12, color: "#F59E0B" },
+                { name: "Oncology", ward: 55, icu: 18, color: "#F43F5E" }
+            ],
+            severityMix: [
+                { label: "Critical ICU", pct: 22, color: "#F43F5E" },
+                { label: "Step-Down Ward", pct: 38, color: "#00F0FF" },
+                { label: "Elective Post-Op", pct: 28, color: "#00E5A3" },
+                { label: "Day Observation", pct: 12, color: "#F59E0B" }
+            ],
+            scatterPoints: [
+                { dept: "Cardiology", stay: 5.2, bill: 72, risk: 24, color: "#00F0FF" },
+                { dept: "Orthopedics", stay: 6.8, bill: 48, risk: 14, color: "#00E5A3" },
+                { dept: "Neurology", stay: 8.4, bill: 86, risk: 32, color: "#A855F7" },
+                { dept: "Pediatrics", stay: 4.1, bill: 22, risk: 10, color: "#F59E0B" },
+                { dept: "Oncology", stay: 9.6, bill: 94, risk: 38, color: "#F43F5E" }
+            ],
+            waterfall: [
+                { name: "Base", val: 24.5, type: "base" },
+                { name: "Surge Vol", val: 3.2, type: "pos" },
+                { name: "Cath Lab", val: 1.8, type: "pos" },
+                { name: "Discounts", val: -0.9, type: "neg" },
+                { name: "ETA VAT", val: -0.2, type: "neg" },
+                { name: "Net Yield", val: 28.4, type: "total" }
+            ],
+            funnel: [
+                { stage: "Emergency & Elective Intake", count: "1,450 Patients", pct: 100 },
+                { stage: "Clinical Triage & Diagnostics", count: "1,320 Evaluated", pct: 91 },
+                { stage: "Surgical / Procedural Floor", count: "780 Interventions", pct: 54 },
+                { stage: "Monitored Inpatient Recovery", count: "482 Occupied", pct: 33 },
+                { stage: "Successful Discharge Clearance", count: "440 Completed", pct: 30 }
+            ],
+            hubs: [
+                { name: "Cairo HQ (Qasr El-Nil)", rev: "9.85M EGP", share: 88, color: "linear-gradient(90deg, #00F0FF, #00E5A3)" },
+                { name: "Smart Village Tech City", rev: "6.40M EGP", share: 72, color: "linear-gradient(90deg, #00E5A3, #38BDF8)" },
+                { name: "Alexandria Mediterranean Hub", rev: "5.20M EGP", share: 64, color: "linear-gradient(90deg, #38BDF8, #A855F7)" },
+                { name: "Mansoura Delta Medical City", rev: "4.10M EGP", share: 50, color: "linear-gradient(90deg, #A855F7, #F59E0B)" },
+                { name: "Assiut Upper Egypt Center", rev: "2.90M EGP", share: 38, color: "linear-gradient(90deg, #F59E0B, #F43F5E)" }
+            ]
+        };
+
+        // Mobile Sidebar Controls
+        function toggleSidebar() {
+            const sb = document.getElementById('appSidebar');
+            const bd = document.getElementById('sidebarBackdrop');
+            sb.classList.toggle('mobile-open');
+            bd.classList.toggle('active');
+        }
+
+        function closeMobileSidebar() {
+            const sb = document.getElementById('appSidebar');
+            const bd = document.getElementById('sidebarBackdrop');
+            sb.classList.remove('mobile-open');
+            bd.classList.remove('active');
+        }
+
+        // 1. Render Neon Spline Area Chart (SVG with Glow)
+        function renderAreaTrend() {
+            const box = document.getElementById('chart-area-trend');
+            const w = box.clientWidth || 340;
+            const h = 180;
+            const padL = 30, padR = 20, padT = 20, padB = 30;
+            const effW = w - padL - padR;
+            const effH = h - padT - padB;
+
+            const maxVal = 620;
+            const pts = holoData.monthly.map((d, i) => {
+                const x = padL + (i / (holoData.monthly.length - 1)) * effW;
+                const v = d.actual !== null ? d.actual : d.forecast;
+                const y = padT + effH - (v / maxVal) * effH;
+                return { x, y, m: d.m, isFc: d.actual === null };
+            });
+
+            let pathD = `M ${pts[0].x} ${pts[0].y}`;
+            for (let i = 1; i < pts.length; i++) {
+                const prev = pts[i-1];
+                const curr = pts[i];
+                const cx1 = (prev.x + curr.x) / 2;
+                pathD += ` C ${cx1} ${prev.y}, ${cx1} ${curr.y}, ${curr.x} ${curr.y}`;
+            }
+
+            const areaD = `${pathD} L ${pts[pts.length-1].x} ${h - padB} L ${pts[0].x} ${h - padB} Z`;
+
+            let dotsHtml = pts.map(p => `
+                <circle cx="${p.x}" cy="${p.y}" r="${p.isFc ? 4 : 5}" fill="${p.isFc ? '#A855F7' : '#00F0FF'}" stroke="#050B14" stroke-width="2"/>
+                <text x="${p.x}" y="${h - 8}" fill="#94A3B8" font-size="9" text-anchor="middle" font-family="JetBrains Mono">${p.m.split(' ')[0]}</text>
+            `).join('');
+
+            box.innerHTML = `
+                <svg width="100%" height="100%" viewBox="0 0 ${w} ${h}">
+                    <defs>
+                        <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#00F0FF" stop-opacity="0.0"/>
+                        </linearGradient>
+                        <filter id="neonGlow">
+                            <feGaussianBlur stdDeviation="3" result="glow"/>
+                            <feMerge>
+                                <feMergeNode in="glow"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <path d="${areaD}" fill="url(#areaGrad)"/>
+                    <path d="${pathD}" fill="none" stroke="#00F0FF" stroke-width="2.5" class="anim-draw-line" filter="url(#neonGlow)"/>
+                    ${dotsHtml}
+                </svg>
+            `;
+        }
+
+        // 2. Render Grouped Bar Chart (Ward vs ICU)
+        function renderGroupedBar() {
+            const box = document.getElementById('chart-grouped-bar');
+            const w = box.clientWidth || 340;
+            const h = 180;
+            const padL = 30, padR = 15, padT = 20, padB = 30;
+            const effW = w - padL - padR;
+            const effH = h - padT - padB;
+            const maxVal = 120;
+            const numDepts = holoData.departments.length;
+            const grpW = effW / numDepts;
+            const barW = Math.min(14, grpW * 0.35);
+
+            let barsHtml = holoData.departments.map((d, i) => {
+                const grpX = padL + i * grpW;
+                const hWard = (d.ward / maxVal) * effH;
+                const hICU = (d.icu / maxVal) * effH;
+                const yWard = padT + effH - hWard;
+                const yICU = padT + effH - hICU;
+                const xWard = grpX + (grpW / 2) - barW - 2;
+                const xICU = grpX + (grpW / 2) + 2;
+
+                return `
+                    <rect x="${xWard}" y="${yWard}" width="${barW}" height="${hWard}" rx="3" fill="#00F0FF" opacity="0.9" class="anim-grow-bar"/>
+                    <rect x="${xICU}" y="${yICU}" width="${barW}" height="${hICU}" rx="3" fill="#F43F5E" opacity="0.9" class="anim-grow-bar" style="animation-delay: 0.1s;"/>
+                    <text x="${grpX + grpW/2}" y="${h - 8}" fill="#94A3B8" font-size="8.5" text-anchor="middle" font-family="Plus Jakarta Sans">${d.name.substring(0, 4)}</text>
+                `;
+            }).join('');
+
+            box.innerHTML = `
+                <svg width="100%" height="100%" viewBox="0 0 ${w} ${h}">
+                    <line x1="${padL}" y1="${padT + effH}" x2="${w - padR}" y2="${padT + effH}" stroke="rgba(255,255,255,0.15)"/>
+                    ${barsHtml}
+                </svg>
+            `;
+        }
+
+        // 3. Render Radial Donut Chart
+        function renderRadialDonut() {
+            const box = document.getElementById('chart-radial-donut');
+            let legendHtml = holoData.severityMix.map(s => `
+                <div class="radial-item">
+                    <div class="radial-color-box" style="background: ${s.color}; box-shadow: 0 0 6px ${s.color};"></div>
+                    <span style="color: #FFFFFF; font-weight: 600;">${s.label}</span>
+                    <span style="color: var(--text-dim); font-family: 'JetBrains Mono';">${s.pct}%</span>
+                </div>
+            `).join('');
+
+            box.innerHTML = `
+                <div style="position: relative; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">
+                    <svg width="140" height="140" viewBox="0 0 140 140">
+                        <circle cx="70" cy="70" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="14"/>
+                        <!-- Donut slices using stroke-dasharray -->
+                        <circle cx="70" cy="70" r="52" fill="none" stroke="#F43F5E" stroke-width="14"
+                            stroke-dasharray="71.8 326.7" stroke-dashoffset="0" transform="rotate(-90 70 70)"/>
+                        <circle cx="70" cy="70" r="52" fill="none" stroke="#00F0FF" stroke-width="14"
+                            stroke-dasharray="124.1 326.7" stroke-dashoffset="-71.8" transform="rotate(-90 70 70)"/>
+                        <circle cx="70" cy="70" r="52" fill="none" stroke="#00E5A3" stroke-width="14"
+                            stroke-dasharray="91.4 326.7" stroke-dashoffset="-195.9" transform="rotate(-90 70 70)"/>
+                        <circle cx="70" cy="70" r="52" fill="none" stroke="#F59E0B" stroke-width="14"
+                            stroke-dasharray="39.2 326.7" stroke-dashoffset="-287.3" transform="rotate(-90 70 70)"/>
+                    </svg>
+                    <div style="position: absolute; text-align: center;">
+                        <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; text-shadow: 0 0 8px var(--holo-cyan);">100%</div>
+                        <div style="font-size: 0.65rem; color: var(--holo-cyan); font-family: 'JetBrains Mono';">CASES</div>
+                    </div>
+                </div>
+                <div class="radial-legend">${legendHtml}</div>
+            `;
+        }
+
+        // 4. Render Multi-Variable Scatter / Bubble Matrix
+        function renderScatterBubble() {
+            const box = document.getElementById('chart-scatter-bubble');
+            const w = box.clientWidth || 340;
+            const h = 180;
+            const padL = 35, padR = 25, padT = 20, padB = 30;
+            const effW = w - padL - padR;
+            const effH = h - padT - padB;
+
+            let bubblesHtml = holoData.scatterPoints.map(p => {
+                const cx = padL + (p.stay / 12) * effW;
+                const cy = padT + effH - (p.bill / 110) * effH;
+                const r = Math.max(6, (p.risk / 40) * 16);
+                return `
+                    <circle cx="${cx}" cy="${cy}" r="${r}" fill="${p.color}" opacity="0.75" stroke="#FFFFFF" stroke-width="1.5" class="anim-pop-bubble"/>
+                    <text x="${cx}" y="${cy - r - 3}" fill="${p.color}" font-size="8" text-anchor="middle" font-weight="700">${p.dept.substring(0, 4)}</text>
+                `;
+            }).join('');
+
+            box.innerHTML = `
+                <svg width="100%" height="100%" viewBox="0 0 ${w} ${h}">
+                    <line x1="${padL}" y1="${padT + effH}" x2="${w - padR}" y2="${padT + effH}" stroke="rgba(255,255,255,0.2)"/>
+                    <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + effH}" stroke="rgba(255,255,255,0.2)"/>
+                    <text x="${w - padR}" y="${h - 8}" fill="#94A3B8" font-size="8" text-anchor="end" font-family="JetBrains Mono">Stay (Days) →</text>
+                    <text x="${padL}" y="12" fill="#94A3B8" font-size="8" font-family="JetBrains Mono">↑ Billing (k)</text>
+                    ${bubblesHtml}
+                </svg>
+            `;
+        }
+
+        // 5. Render Waterfall Variance Chart
+        function renderWaterfall() {
+            const box = document.getElementById('chart-waterfall');
+            const w = box.clientWidth || 340;
+            const h = 180;
+            const padL = 25, padR = 20, padT = 20, padB = 30;
+            const effW = w - padL - padR;
+            const effH = h - padT - padB;
+            const numBars = holoData.waterfall.length;
+            const barW = Math.min(22, (effW / numBars) * 0.65);
+            const step = effW / numBars;
+
+            let runningTotal = 0;
+            let barsHtml = holoData.waterfall.map((d, i) => {
+                const x = padL + i * step + (step - barW)/2;
+                let y, height, color;
+
+                if (d.type === 'base') {
+                    height = (d.val / 32) * effH;
+                    y = padT + effH - height;
+                    color = "#00F0FF";
+                    runningTotal = d.val;
+                } else if (d.type === 'total') {
+                    height = (d.val / 32) * effH;
+                    y = padT + effH - height;
+                    color = "#00E5A3";
+                } else if (d.type === 'pos') {
+                    height = (d.val / 32) * effH;
+                    y = padT + effH - ((runningTotal + d.val) / 32) * effH;
+                    color = "#00E5A3";
+                    runningTotal += d.val;
+                } else {
+                    height = (Math.abs(d.val) / 32) * effH;
+                    y = padT + effH - (runningTotal / 32) * effH;
+                    color = "#F43F5E";
+                    runningTotal += d.val;
+                }
+
+                return `
+                    <rect x="${x}" y="${y}" width="${barW}" height="${Math.max(2, height)}" rx="3" fill="${color}"/>
+                    <text x="${x + barW/2}" y="${y - 4}" fill="${color}" font-size="7.5" text-anchor="middle" font-weight="700">${d.val > 0 ? '+' : ''}${d.val}</text>
+                    <text x="${x + barW/2}" y="${h - 8}" fill="#94A3B8" font-size="7.5" text-anchor="middle" font-family="Plus Jakarta Sans">${d.name}</text>
+                `;
+            }).join('');
+
+            box.innerHTML = `
+                <svg width="100%" height="100%" viewBox="0 0 ${w} ${h}">
+                    <line x1="${padL}" y1="${padT + effH}" x2="${w - padR}" y2="${padT + effH}" stroke="rgba(255,255,255,0.15)"/>
+                    ${barsHtml}
+                </svg>
+            `;
+        }
+
+        // 6. Render Funnel Pipeline
+        function renderFunnel() {
+            const box = document.getElementById('chart-funnel');
+            box.innerHTML = holoData.funnel.map(f => `
+                <div class="funnel-stage">
+                    <div style="width: 140px; color: #FFFFFF; font-weight: 600; font-size: 0.72rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        ${f.stage}
+                    </div>
+                    <div class="funnel-bar-wrap">
+                        <div class="funnel-bar-glow" style="width: ${f.pct}%;"></div>
+                        <span style="position: relative; z-index: 2; font-size: 0.68rem; color: #FFFFFF; font-family: 'JetBrains Mono';">
+                            ${f.count} (${f.pct}%)
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 7. Render Leaderboards
+        function renderLeaderboards() {
+            const box = document.getElementById('chart-leaderboard');
+            box.innerHTML = holoData.hubs.map(h => `
+                <div class="lb-row">
+                    <div class="lb-info">
+                        <span style="color: #FFFFFF;">${h.name}</span>
+                        <span style="color: var(--holo-cyan); font-family: 'JetBrains Mono';">${h.rev}</span>
+                    </div>
+                    <div class="lb-track">
+                        <div class="lb-bar" style="width: ${h.share}%; background: ${h.color};"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // What-If Simulator
+        function runHoloSimulator() {
+            const surge = parseInt(document.getElementById('surgeSlider').value);
+            const discharge = parseInt(document.getElementById('dischargeSlider').value);
+
+            document.getElementById('surgeLbl').innerText = `+${surge}%`;
+            document.getElementById('dischargeLbl').innerText = `+${discharge}%`;
+
+            const multiplier = 1 + (surge * 0.015) - (discharge * 0.008);
+            const projectedRev = (28.45 * multiplier).toFixed(2);
+            const netBedDemand = Math.round(482 + (surge * 2.2) - (discharge * 2.8));
+            const availableICU = Math.max(12, 70 - Math.round(netBedDemand * 0.08));
+
+            document.getElementById('simRevResult').innerText = `${projectedRev}M EGP`;
+            if (availableICU > 25) {
+                document.getElementById('simHeadroomResult').innerHTML = `🟢 Safe Headroom: ${availableICU} Monitored ICU Beds Available`;
+                document.getElementById('simHeadroomResult').style.color = '#00E5A3';
+            } else {
+                document.getElementById('simHeadroomResult').innerHTML = `⚠️ High Surge Alert: Only ${availableICU} ICU Beds Remaining`;
+                document.getElementById('simHeadroomResult').style.color = '#F59E0B';
+            }
+        }
+
+        // Slicer Calculations
+        function runHoloCalculations() {
+            const dept = document.getElementById('deptFilter').value;
+            const branch = document.getElementById('branchFilter').value;
+            let mult = 1.0;
+            if (dept !== 'ALL') mult *= 0.68;
+            if (branch !== 'ALL') mult *= 0.72;
+
+            document.getElementById('kpi-total').innerText = Math.round(1450 * mult).toLocaleString();
+            document.getElementById('kpi-beds').innerText = Math.round(482 * mult).toLocaleString();
+            document.getElementById('kpi-rev').innerHTML = `${(28.45 * mult).toFixed(2)} <span style="font-size: 0.85rem;">M EGP</span>`;
+        }
+
+        // Analytics Layer Switcher
+        function filterLayers(layer, btn) {
+            document.querySelectorAll('.layer-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            // Visual pulse feedback
+        }
+
+        // Init
+        
+        // ============================================================
+        // HOLOGRAPHIC 60FPS SCROLL & MOTION DYNAMICS ENGINE
+        // ============================================================
+
+        // 1. Synthesized Web Audio Holographic Haptics
+        let audioCtx = null;
+        let soundEnabled = true;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) audioCtx = new AudioContext();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playHoloChime(freq = 880, type = 'sine', duration = 0.08, gainVal = 0.04) {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                if (!audioCtx) return;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                // Pitch bend down slightly for glass shimmer
+                osc.frequency.exponentialRampToValueAtTime(freq * 1.35, audioCtx.currentTime + duration * 0.4);
+                osc.frequency.exponentialRampToValueAtTime(freq * 0.9, audioCtx.currentTime + duration);
+
+                gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        function toggleHoloSound() {
+            soundEnabled = !soundEnabled;
+            const icon = document.getElementById('soundIcon');
+            const lbl = document.getElementById('soundLabel');
+            if (soundEnabled) {
+                icon.innerText = '🔊';
+                lbl.innerText = 'Glass Sonic: ON';
+                playHoloChime(1046, 'sine', 0.12, 0.06);
+            } else {
+                icon.innerText = '🔇';
+                lbl.innerText = 'Glass Sonic: MUTED';
+            }
+        }
+
+        // 2. Ambient Cyber Dust 60FPS Canvas
+        let particleVelocityMultiplier = 1;
+        function initHoloParticles() {
+            const canvas = document.getElementById('holoParticleCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let w, h;
+
+            function resizeCanvas() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const particles = [];
+            const count = Math.min(38, Math.floor(window.innerWidth / 30));
+
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    vx: (Math.random() - 0.5) * 0.45,
+                    vy: (Math.random() - 0.5) * 0.45,
+                    r: Math.random() * 1.8 + 0.6,
+                    color: Math.random() > 0.6 ? '#00F0FF' : (Math.random() > 0.5 ? '#A855F7' : '#00E5A3'),
+                    alpha: Math.random() * 0.5 + 0.2
+                });
+            }
+
+            let lastTime = performance.now();
+            function renderParticles(now) {
+                const dt = (now - lastTime) / 1000;
+                lastTime = now;
+                ctx.clearRect(0, 0, w, h);
+
+                // Decay velocity multiplier towards 1
+                particleVelocityMultiplier += (1 - particleVelocityMultiplier) * 0.04;
+
+                // Draw connections
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 110) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 240, 255, ${0.12 * (1 - dist / 110)})`;
+                            ctx.lineWidth = 0.6;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                // Update & draw particles
+                for (let p of particles) {
+                    p.x += p.vx * particleVelocityMultiplier;
+                    p.y += p.vy * particleVelocityMultiplier;
+
+                    if (p.x < 0) p.x = w;
+                    if (p.x > w) p.x = 0;
+                    if (p.y < 0) p.y = h;
+                    if (p.y > h) p.y = 0;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.globalAlpha = p.alpha;
+                    ctx.shadowBlur = 8;
+                    ctx.shadowColor = p.color;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                    ctx.globalAlpha = 1.0;
+                }
+
+                requestAnimationFrame(renderParticles);
+            }
+            requestAnimationFrame(renderParticles);
+        }
+
+        // 3. Smooth Numerical Roll-Up (CountUp)
+        function animateCountUp(el, targetVal, prefix = '', suffix = '', decimals = 0, duration = 1200) {
+            const startTime = performance.now();
+            function update(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const ease = 1 - Math.pow(1 - progress, 3);
+                const current = (targetVal * ease).toFixed(decimals);
+                el.innerHTML = `${prefix}${Number(current).toLocaleString()}${suffix}`;
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    el.innerHTML = `${prefix}${Number(targetVal.toFixed(decimals)).toLocaleString()}${suffix}`;
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        // 4. Scroll Tracking & Depth Indicator HUD
+        let lastScrollY = window.scrollY;
+        function handleScrollDynamics() {
+            const currentScrollY = window.scrollY;
+            const scrollDelta = Math.abs(currentScrollY - lastScrollY);
+            lastScrollY = currentScrollY;
+
+            // Energize particles on scroll
+            particleVelocityMultiplier = Math.min(4.5, 1 + scrollDelta * 0.08);
+
+            // Update Laser Progress
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (currentScrollY / docHeight) : 0;
+            const pct = Math.min(100, Math.max(0, Math.round(progress * 100)));
+            const laser = document.getElementById('holoScrollLaser');
+            if (laser) laser.style.width = pct + '%';
+
+            // Determine Active Layer Depth Text
+            const depthText = document.getElementById('depthText');
+            if (depthText) {
+                if (pct < 18) {
+                    depthText.innerText = `DEPTH: ${pct}% • EXECUTIVE STRATEGIC OVERVIEW`;
+                } else if (pct < 45) {
+                    depthText.innerText = `DEPTH: ${pct}% • CLINICAL MATRIX & ADMISSIONS DONUT`;
+                } else if (pct < 72) {
+                    depthText.innerText = `DEPTH: ${pct}% • 90-DAY PREDICTIVE HORIZON & COST BRIDGE`;
+                } else {
+                    depthText.innerText = `DEPTH: ${pct}% • WHAT-IF CAPACITY SIMULATOR & ADVICE`;
+                }
+            }
+        }
+
+        // 5. 3D Holographic Parallax Tilt Interaction
+        function initInteractiveTilt() {
+            const cards = document.querySelectorAll('.interactive-tilt');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotX = ((y - centerY) / centerY) * -5.5; // max 5.5 deg
+                    const rotY = ((x - centerX) / centerX) * 5.5;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-2px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+                });
+            });
+        }
+
+        // 6. IntersectionObserver for 60FPS Staggered Scroll Reveal
+        function initScrollObserver() {
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach((entry, idx) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                        
+                        // Subtle chime when a new major section is revealed
+                        const pitchList = [784, 880, 988, 1046, 1175];
+                        const pitch = pitchList[idx % pitchList.length];
+                        playHoloChime(pitch, 'sine', 0.09, 0.03);
+
+                        // If chart container is inside, trigger its SVG chart animation
+                        if (entry.target.querySelector('#chart-area-trend')) renderAreaTrend(true);
+                        if (entry.target.querySelector('#chart-grouped-bar')) renderGroupedBar(true);
+                        if (entry.target.querySelector('#chart-radial-donut')) renderRadialDonut(true);
+                        if (entry.target.querySelector('#chart-scatter-bubble')) renderScatterBubble(true);
+                        if (entry.target.querySelector('#chart-waterfall')) renderWaterfall(true);
+                        if (entry.target.querySelector('#chart-funnel')) renderFunnel(true);
+                        if (entry.target.querySelector('#chart-leaderboard')) renderLeaderboards(true);
+
+                        // If KPI card, trigger smooth roll-up
+                        if (entry.target.classList.contains('kpi-holocard')) {
+                            const valEl = entry.target.querySelector('.kpi-big-value');
+                            if (valEl && !valEl.dataset.animated) {
+                                valEl.dataset.animated = "true";
+                                if (valEl.id === 'kpi-total') animateCountUp(valEl, 1450, '', '', 0, 1000);
+                                if (valEl.id === 'kpi-beds') animateCountUp(valEl, 482, '', '', 0, 1000);
+                                if (valEl.id === 'kpi-stay') animateCountUp(valEl, 4.6, '', ' Days', 1, 900);
+                                if (valEl.id === 'kpi-csat') animateCountUp(valEl, 94.8, '', '%', 1, 900);
+                                if (valEl.id === 'kpi-rev') animateCountUp(valEl, 28.45, '', ' <span style="font-size: 0.85rem;">M EGP</span>', 2, 1100);
+                            }
+                        }
+
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(el => observer.observe(el));
+        }
+
+window.addEventListener('DOMContentLoaded', () => {
+            renderAreaTrend();
+            renderGroupedBar();
+            renderRadialDonut();
+            renderScatterBubble();
+            renderWaterfall();
+            renderFunnel();
+            renderLeaderboards();
+            runHoloSimulator();
+        });
+
+        window.addEventListener('resize', () => {
+            renderAreaTrend();
+            renderGroupedBar();
+            renderScatterBubble();
+            renderWaterfall();
+        });
+    </script>
+</body>
+</html>
