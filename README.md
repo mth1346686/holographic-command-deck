@@ -1,10 +1,11 @@
 # 💎 Holographic Clinical Command Deck
-### Sovereign Analytics Intelligence • 60FPS Glassmorphic Clinical Dashboard & Companion Excel Suite
+### Enterprise Next.js 14, Tailwind CSS, Framer Motion & Companion Excel Suite
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-00F0FF?style=for-the-badge&logo=github)](https://mth1346686.github.io/holographic-command-deck/)
-[![License](https://img.shields.io/badge/License-MIT-A855F7?style=for-the-badge)](LICENSE)
-[![Architecture](https://img.shields.io/badge/Architecture-Sovereign_Century_Swarm-00E5A3?style=for-the-badge)]()
-[![Performance](https://img.shields.io/badge/Performance-60FPS_GPU_Accelerated-F59E0B?style=for-the-badge)]()
+[![Framework](https://img.shields.io/badge/Framework-Next.js_14_App_Router-000000?style=for-the-badge&logo=nextdotjs)]()
+[![Styling](https://img.shields.io/badge/Styling-Tailwind_CSS_v3-38B2AC?style=for-the-badge&logo=tailwindcss)]()
+[![Animation](https://img.shields.io/badge/Animation-Framer_Motion-F43F5E?style=for-the-badge&logo=framer)]()
+[![Charts](https://img.shields.io/badge/Charts-Recharts_&_SVG-A855F7?style=for-the-badge)]()
 
 ---
 
@@ -15,55 +16,49 @@ Access the live interactive command deck directly on GitHub Pages:
 ---
 
 ## 📸 Executive Boardroom Preview
-![Cairo Penthouse Executive Interaction](cairo_tech_founders_hologram.jpg)
+![Cairo Penthouse Next.js Interaction](cairo_tech_founders_hologram.jpg)
 
 ---
 
-## 🌟 Key Architectural Pillars
+## 🌟 Modern Tech Stack Architecture
 
-### 1. 60FPS Scroll & Motion Dynamics
-• IntersectionObserver 3D Holographic Staggered Reveal with blur-to-focus depth and laser light sheen sweeps.
-• Dynamic SVG Ingress Drawing: Spline paths draw continuously across the horizon, grouped bars elevate dynamically from base, and scatter matrix bubbles burst with spring-pop physics.
-• Smooth CountUp Numerical Telemetry rolling up metrics upon first entry into the viewport.
-• Top Holographic Laser Scroll Progress Bar (0% to 100%) tracking navigation depth.
-• Floating HUD Depth Capsule with real-time level indicators and instant glide-to-top navigation.
-• Interactive 3D Perspective Tilt responding dynamically to cursor position and mobile touch gestures.
-• Ambient Cyber Dust 60FPS Canvas reacting proportionally to scroll velocity.
-• Built-in Web Audio API Glass Crystal Sonic Feedback (toggleable on/off).
+### 1. Next.js 14 (App Router)
+• React Server & Client Components architecture with `'use client'` interactive telemetry.
+• Static Export configuration (`output: 'export'`) for zero-latency CDN edge delivery.
+• Optimized metadata, custom OpenGraph social sharing tags, and Egyptian timezone handling.
 
-### 2. Comprehensive Analytics Hierarchy
-• Descriptive Analytics: Real-time operational admissions, patient flow, and bed occupancy rates.
-• Diagnostic Analytics: Departmental cost-to-stay scatter matrices and variance waterfall bridges.
-• Predictive Analytics: 90-Day ARIMA occupancy forecasting with 95% statistical confidence intervals.
-• Prescriptive Analytics: AI actionable directives for bed re-allocation and surgical block optimization.
-• Interactive What-If Capacity Simulator: Real-time slider adjustments computing projected monthly revenue (EGP) and bed headroom.
+### 2. Tailwind CSS (Dark Luxury Glassmorphic System)
+• Bespoke color tokens (`holo-cyan`, `holo-violet`, `holo-teal`, `holo-rose`, `holo-amber`).
+• High-performance backdrop blur (`backdrop-blur-ultra`), subtle cyan border gradients, and neon box-shadows.
 
-### 3. Authentic Regional Financials
-• Native Egyptian Pound currency (EGP / L.E) with realistic multi-branch private hospital metrics (New Cairo, Sheikh Zayed, Mohandessin, Alexandria).
-• Real clinical workflow KPIs (Average Length of Stay, Bed Turnover Interval, Patient Satisfaction CSAT).
+### 3. Motion & Aesthetics Engines
+• **Framer Motion (`framer-motion`):** Spring physics transitions (`stiffness`, `damping`), scroll-driven reveal pipelines, path-length SVG drawings, and layout animations.
+• **Lucide React (`lucide-react`):** Vector neon icons for clinical metrics (`Activity`, `Bed`, `HeartPulse`, `DollarSign`, `Sliders`, `Sparkles`).
+• **Canvas Confetti (`canvas-confetti`):** Sensory particle celebrations upon expansion simulation triggers.
+• **Synthesized Web Audio Haptics:** Pure browser-generated crystal pings on interactions with toggleable controls.
 
-### 4. Executive Single-Page Excel Companion
+### 4. Companion Executive Single-Page Excel Deck
 • Included binary workbook: `Holographic_Clinical_Analytics.xlsx`
 • Strict A:R column bounded layout for zero horizontal scroll.
-• Dark Luxury cyber palette with frozen executive panes and isolated calculation engines.
+• Direct one-click download embedded inside the Next.js header.
 
 ---
 
-## 📁 Repository Structure
-• `index.html`: Complete standalone 60FPS holographic glass dashboard.
-• `Holographic_Clinical_Analytics.xlsx`: Executive companion single-page workbook.
-• `cairo_tech_founders_hologram.jpg`: 8K cinematic editorial preview photograph.
-• `cairo_holographic_glass_boardroom.jpg`: High-resolution boardroom environment photograph.
-• `README.md`: Documentation and architectural overview.
+## 📁 Repository Directory Structure
+• `app/`: Next.js 14 App Router layout, page, and Tailwind globals.
+• `components/`: Modular React components (`HolographicDashboard.jsx`).
+• `public/` & root assets: Images (`cairo_tech_founders_hologram.jpg`), Excel workbook (`Holographic_Clinical_Analytics.xlsx`).
+• `.github/workflows/nextjs.yml`: Automated GitHub Actions workflow building and deploying Next.js to GitHub Pages.
+• `index.html`: Standalone zero-dependency 60FPS edition for instant browser preview and CDN fallback.
 
 ---
 
-## 🚀 Local Execution
-To run locally, simply open `index.html` in any modern web browser or serve with:
+## 🚀 Local Development
 ```bash
-python3 -m http.server 8080
+npm install
+npm run dev
 ```
-Then navigate to `http://localhost:8080`.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 ---
 
